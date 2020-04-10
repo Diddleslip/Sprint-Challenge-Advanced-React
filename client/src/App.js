@@ -1,34 +1,27 @@
 import React from 'react';
 import './App.css';
-import axios from "axios";
+// import axios from "axios";
 import PeopleCard from "./Components/PeopleCard";
+import NavBar from "./Components/NavBar";
+// import Test from "./Components/PeopleCar.test";
 
 export default class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      data: []
+      // data: []
     }
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:5000/api/players`)
-    .then(response => {
-      this.setState({
-        data: response.data,
-      })
-    })
-    .catch(error => {
-      console.log("Caught error :( :", error);
-    })
-  }
 
   render(){
     return (
       <div className="App">
-        <PeopleCard data={this.state.data}/>
-        <h1>Hello</h1>
+        <NavBar />
+        <PeopleCard/>
+        {/* <Test data={this.state.data}/> */}
+        <h1 data-testid="h1">Hello</h1>
       </div>
     );
   }
